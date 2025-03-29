@@ -1,15 +1,11 @@
-import shutil
 import os
 import zipfile
 
-# Diretório onde os PDFs foram baixados
-diretorio = "../downloads"  # Substitua pelo caminho correto
+diretorio = "../downloads"
 saida_zip = "anexos_compactados.zip"
 
-# Lista apenas os arquivos que contêm "Anexo" no nome
 anexos = [f for f in os.listdir(diretorio) if "Anexo" in f and f.endswith(".pdf")]
 
-# Criando o arquivo ZIP
 with zipfile.ZipFile(saida_zip, "w") as zipf:
     for arquivo in anexos:
         caminho_completo = os.path.join(diretorio, arquivo)
